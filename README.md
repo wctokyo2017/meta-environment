@@ -1,5 +1,7 @@
 # WordPress Meta Environment
 
+**[NOTICE]This is forked version!**
+
 The Meta Environment (WME) aims to make it easier to contribute to the network of official WordPress.org websites by automatically setting
 up a local development environment that is already provisioned with everything you need to get started on a patch.
 The environment will contain all of the open-source code that runs each supported site, as well as some sample data

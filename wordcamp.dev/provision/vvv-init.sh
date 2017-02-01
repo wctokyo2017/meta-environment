@@ -5,7 +5,7 @@ PROVISION_DIR="$BASE_DIR/$SITE_DOMAIN/provision"
 SITE_DIR="$BASE_DIR/$SITE_DOMAIN/public_html"
 SVN_PLUGINS=( camptix-network-tools email-post-changes tagregator )
 WPCLI_PLUGINS=( akismet buddypress bbpress camptix-pagseguro camptix-payfast-gateway jetpack json-rest-api wp-multibyte-patch wordpress-importer )
-WPCLI_THEMES=( twentyten twentyeleven twentytwelve twentythirteen )
+WPCLI_THEMES=( twentyseventeen )
 
 source $BASE_DIR/helper-functions.sh
 wme_create_logs "$BASE_DIR/$SITE_DOMAIN/logs"
@@ -32,6 +32,11 @@ if [ ! -L $SITE_DIR ]; then
 	done
 
 	git clone https://github.com/Automattic/camptix.git $SITE_DIR/wp-content/plugins/camptix
+	
+	# Clone nacin's theme
+	git clone https://github.com/nacin/wordpress-sites.git $SITE_DIR/nacin
+	mv -r $SITE_DIR/nacin/wordcamp.org/public_html/wp-content/themes/wordcamp-base-v2/ $SITE_DIR/wp-content/themes/wordcamp-base-v2
+	rm -rf $SITE_DIR/nacin
 
 	# Setup mu-plugin for local development
 	cp $PROVISION_DIR/sandbox-functionality.php $SITE_DIR/wp-content/mu-plugins/
